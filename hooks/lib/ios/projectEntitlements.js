@@ -31,6 +31,7 @@ module.exports = {
  */
 function generateEntitlements(cordovaContext, pluginPreferences) {
   context = cordovaContext;
+  console.log(context);
 
   var currentEntitlements = getEntitlementsFileContent();
   var newEntitlements = injectPreferences(currentEntitlements, pluginPreferences);
