@@ -12,6 +12,7 @@ var plist = require('plist');
 var mkpath = require('mkpath');
 var ConfigXmlHelper = require('../configXmlHelper.js');
 var ASSOCIATED_DOMAINS = 'com.apple.developer.associated-domains';
+var APS_ENVIRONMENT = 'aps-environment';
 var context;
 var projectRoot;
 var projectName;
