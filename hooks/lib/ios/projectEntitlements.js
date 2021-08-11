@@ -12,6 +12,7 @@ var plist = require('plist');
 var mkpath = require('mkpath');
 var ConfigXmlHelper = require('../configXmlHelper.js');
 var ASSOCIATED_DOMAINS = 'com.apple.developer.associated-domains';
+var APS_ENVIRONMENT = 'com.apple.developer.aps-environment';
 var context;
 var projectRoot;
 var projectName;
@@ -31,7 +32,6 @@ module.exports = {
  */
 function generateEntitlements(cordovaContext, pluginPreferences) {
   context = cordovaContext;
-  console.log(context);
 
   var currentEntitlements = getEntitlementsFileContent();
   var newEntitlements = injectPreferences(currentEntitlements, pluginPreferences);
@@ -98,6 +98,7 @@ function injectPreferences(currentEntitlements, pluginPreferences) {
   var content = generateAssociatedDomainsContent(pluginPreferences);
 
   newEntitlements[ASSOCIATED_DOMAINS] = content;
+  newEntitlements[APS_ENVIRONMENT] = "release";
 
   return newEntitlements;
 }
